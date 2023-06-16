@@ -1,1 +1,11 @@
-
+body {
+    /*background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg');
+    */
+}
+.row{
+    display:flex
+    
+}
+.col{
+    flex:30%
+}
