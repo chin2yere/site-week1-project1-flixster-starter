@@ -9,7 +9,9 @@ var inputValue;
 
 const apiKey = "cf9182cf58f52e0c0d3f0409fb37c8d8";
 url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`;
+//create a variable that kepps track of the position to load more
 var j = 0;
+//when the page loads this function will load
 document.addEventListener("DOMContentLoaded", async (event) => {
 
     const response = await fetch(url);
@@ -22,49 +24,46 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         const img = document.createElement("img");
         const h1 = document.createElement("h5");
         const h4 = document.createElement("h6");
-        const divv = document.createElement("div");
-        divv.setAttribute("class", "col");
+        const innerDiv = document.createElement("div");
+        innerDiv.setAttribute("class", "col");
 
         h4.innerHTML = images[i].vote_average;
         h1.innerHTML = images[i].title;
         img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
         img.alt = `This is a poster for ${images[i].original_title}`;
         img.style.width = "220px";
-        divv.appendChild(img);
-        divv.appendChild(h4);
-        divv.appendChild(h1);
+        innerDiv.appendChild(img);
+        innerDiv.appendChild(h4);
+        innerDiv.appendChild(h1);
         
-        gifsDiv.appendChild(divv);
+        gifsDiv.appendChild(innerDiv);
         j += 1;
 
     }
 });
-
+//when you click on the load more button, this function will be called
 ldBtn.addEventListener("click", async (event) => {
     event.preventDefault(); // Prevent form submission (optional)
 
 
     try {
-        //const apiKey = "cf9182cf58f52e0c0d3f0409fb37c8d8";
-        //url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`
-        // const response = await fetch(url);
-        // const data = await response.json();
-        // const images = data.results;
+        //if we are trying to load within the length of the array, make the loading possible
         if (j < images.length) {
-            const bigDivv = document.createElement("div");
+            const outerDiv = document.createElement("div");
             
-            bigDivv.setAttribute("class", "row");
+            outerDiv.setAttribute("class", "row");
 
             for (let i = j; i < (j + 4); i++) {
+                //for arrays that have an odd number length, implement this if statement to prevent it from force creating 4 arrays
                 if (i<images.length) {
 
                     const img = document.createElement("img");
                     const h1 = document.createElement("h5");
                     const h4 = document.createElement("h6");
-                    const divv = document.createElement("div");
+                    const innerDiv = document.createElement("div");
                     // const bigDivv = document.createElement("gifsDiv");
 
-                    divv.setAttribute("class", "col");
+                    innerDiv.setAttribute("class", "col");
                     // bigDivv.setAttribute("class", "col");
 
                     h4.innerHTML = images[i].vote_average;
@@ -72,12 +71,12 @@ ldBtn.addEventListener("click", async (event) => {
                     img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
                     img.alt = `This is a poster for ${images[i].original_title}`;
                     img.style.width = "220px";
-                    divv.appendChild(img);
-                    divv.appendChild(h4);
-                    divv.appendChild(h1);
+                    innerDiv.appendChild(img);
+                    innerDiv.appendChild(h4);
+                    innerDiv.appendChild(h1);
                     
-                    bigDivv.appendChild(divv);
-                    middlePart.appendChild(bigDivv);
+                    outerDiv.appendChild(innerDiv);
+                    middlePart.appendChild(outerDiv);
 
                 }
             }
@@ -99,13 +98,13 @@ ldBtn.addEventListener("click", async (event) => {
     // Perform your desired action here
     console.log("Button clicked!");
 });
-//search button
+//when search button is clicked, this function will load
 searchBtn.addEventListener("click", async (event) => {
     event.preventDefault(); // Prevent form submission (optional)
 
 
     try {
-        //const apiKey = "cf9182cf58f52e0c0d3f0409fb37c8d8";
+        
         inputValue= searchInput.value;
         url = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(inputValue)}&api_key=${apiKey}`;
         const response = await fetch(url);
@@ -113,9 +112,9 @@ searchBtn.addEventListener("click", async (event) => {
         images = data.results;
         middlePart.innerHTML="";
         
-            const bigDivv = document.createElement("div");
+            const outerDiv = document.createElement("div");
             
-            bigDivv.setAttribute("class", "row");
+            outerDiv.setAttribute("class", "row");
             j=0;
 
             for (let i = j; i < (j + 4); i++) {
@@ -123,23 +122,23 @@ searchBtn.addEventListener("click", async (event) => {
                 const img = document.createElement("img");
                 const h1 = document.createElement("h5");
                 const h4 = document.createElement("h6");
-                const divv = document.createElement("div");
-                // const bigDivv = document.createElement("gifsDiv");
+                const innerDiv = document.createElement("div");
+                
 
-                divv.setAttribute("class", "col");
-                // bigDivv.setAttribute("class", "col");
+                innerDiv.setAttribute("class", "col");
+                
 
                 h4.innerHTML = images[i].vote_average;
                 h1.innerHTML = images[i].title;
                 img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
                 img.alt = `This is a poster for ${images[i].original_title}`;
                 img.style.width = "220px";
-                divv.appendChild(img);
-                divv.appendChild(h4);
-                divv.appendChild(h1);
+                innerDiv.appendChild(img);
+                innerDiv.appendChild(h4);
+                innerDiv.appendChild(h1);
                 
-                bigDivv.appendChild(divv);
-                middlePart.appendChild(bigDivv);
+                outerDiv.appendChild(innerDiv);
+                middlePart.appendChild(outerDiv);
 
             
         }
@@ -160,13 +159,13 @@ searchBtn.addEventListener("click", async (event) => {
     console.log("Button clicked!");
 });
 
-//clear button
+//when the clear button is clicked, this function will be called
 clearBtn.addEventListener("click", async (event) => {
     event.preventDefault(); // Prevent form submission (optional)
 
 
     try {
-        //const apiKey = "cf9182cf58f52e0c0d3f0409fb37c8d8";
+        
         searchInput.value="";
         url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${apiKey}`
         const response = await fetch(url);
@@ -174,9 +173,9 @@ clearBtn.addEventListener("click", async (event) => {
         images = data.results;
         middlePart.innerHTML="";
         
-            const bigDivv = document.createElement("div");
+            const outerDiv = document.createElement("div");
             
-            bigDivv.setAttribute("class", "row");
+            outerDiv.setAttribute("class", "row");
             j=0;
 
             for (let i = j; i < (j + 4); i++) {
@@ -184,23 +183,23 @@ clearBtn.addEventListener("click", async (event) => {
                 const img = document.createElement("img");
                 const h1 = document.createElement("h5");
                 const h4 = document.createElement("h6");
-                const divv = document.createElement("div");
-                // const bigDivv = document.createElement("gifsDiv");
+                const innerDiv = document.createElement("div");
+                
 
-                divv.setAttribute("class", "col");
-                // bigDivv.setAttribute("class", "col");
+                innerDiv.setAttribute("class", "col");
+                
 
                 h4.innerHTML = images[i].vote_average;
                 h1.innerHTML = images[i].title;
                 img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
                 img.alt = `This is a poster for ${images[i].original_title}`;
                 img.style.width = "220px";
-                divv.appendChild(img);
-                divv.appendChild(h4);
-                divv.appendChild(h1);
+                innerDiv.appendChild(img);
+                innerDiv.appendChild(h4);
+                innerDiv.appendChild(h1);
                 
-                bigDivv.appendChild(divv);
-                middlePart.appendChild(bigDivv);
+                outerDiv.appendChild(innerDiv);
+                middlePart.appendChild(outerDiv);
 
             
         }
