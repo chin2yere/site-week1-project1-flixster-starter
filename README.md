@@ -49,16 +49,16 @@ Deployed Application (optional): [Flixster Deployed Site](https://chin2yere.gith
 ### Reflection
 
 - Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
-
-Add your response here
+  The topics discussed in labs were very specific towards this assignment. The instructors tried their best to ensure that we had all the information that we needed to complete the project
 
 - If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have implemented my CSS more to make the website more visually appealing
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I didn't take the responsiveness requirement into consideration when designing my back end. I was too cocerned about making the website into a 4 column grid, that I compromised my responsiveness to a little extent.
+Next time, I will take responsiveness into consideration when designing my Javascript module.
 
 ### Open-source libraries used
 
@@ -67,3 +67,4 @@ Add your response here
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I would like to give a shoutout to Thomas, Tim, and Diogo for being wonderful instructors. I will also like to thank Ryan for helping me get unstuck once.
