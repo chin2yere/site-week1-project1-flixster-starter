@@ -1,3 +1,6 @@
+body{
+    background-image: url('https://freevector-images.s3.amazonaws.com/uploads/vector/preview/40529/White_Background_generated.jpg');
+}
 .row{
     display:flex;
     flex-direction: row;
