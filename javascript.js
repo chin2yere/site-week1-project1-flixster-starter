@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async (event) => {
         h4.innerHTML = images[i].vote_average;
         h1.innerHTML = images[i].title;
         img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
+        img.alt = `This is a poster for ${images[i].original_title}`;
         img.style.width = "220px";
         divv.appendChild(img);
         divv.appendChild(h4);
@@ -69,6 +70,7 @@ ldBtn.addEventListener("click", async (event) => {
                     h4.innerHTML = images[i].vote_average;
                     h1.innerHTML = images[i].title;
                     img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
+                    img.alt = `This is a poster for ${images[i].original_title}`;
                     img.style.width = "220px";
                     divv.appendChild(img);
                     divv.appendChild(h4);
@@ -130,6 +132,7 @@ searchBtn.addEventListener("click", async (event) => {
                 h4.innerHTML = images[i].vote_average;
                 h1.innerHTML = images[i].title;
                 img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
+                img.alt = `This is a poster for ${images[i].original_title}`;
                 img.style.width = "220px";
                 divv.appendChild(img);
                 divv.appendChild(h4);
@@ -190,6 +193,7 @@ clearBtn.addEventListener("click", async (event) => {
                 h4.innerHTML = images[i].vote_average;
                 h1.innerHTML = images[i].title;
                 img.src = `https://www.themoviedb.org/t/p/w1280/${images[i].poster_path}`;
+                img.alt = `This is a poster for ${images[i].original_title}`;
                 img.style.width = "220px";
                 divv.appendChild(img);
                 divv.appendChild(h4);
