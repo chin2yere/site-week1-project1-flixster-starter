@@ -8,22 +8,31 @@
 </head>
 <body>
     <div style="text-align: center;">
-       <h1 style="color: white">FLIXSTER</h1>
+       <h1 style="color: black">FLIXSTER</h1>
          <form>
-           <input id="form" type="text" name="search" placeholder="Enter movie name"/>
+           <input id="searchInput" type="text" name="search" placeholder="Enter movie name"/>
            <button id="submitBtn" type="submit">Search</button>
            
-            <button id="ldBtn" type="submit">Load more</button>
+            
         
         </form>
+        <p style="text-align: left;">Now Playing</p>
 </div>
 
     <br>
-    <div class="row" id="gifsDiv" style="text-align: center;">
-        <!--The three rows with 3 columns-->
-        
+    <div id="middlePart">
+        <div class="row" id="gifsDiv" style="text-align: center;">
+            <!--The three rows with 3 columns-->
+            
+    
+        </div>
+
 
     </div>
+    <div style="text-align: center;">
+        <button id="ldBtn" type="submit">Load more movies</button>
+    </div>
+    
 
     
     <script src="./javascript.js"></script>
