@@ -42,7 +42,6 @@ Deployed Application (optional): [Flixster Deployed Site](https://chin2yere.gith
 
 ### Walkthrough Video
 
-
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/b4d121f4069d44b58bd46372caf407ea?sid=a1e83a37-38c6-47b0-9744-04f589f17941" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 
